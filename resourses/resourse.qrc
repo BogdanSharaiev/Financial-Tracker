@@ -1,0 +1,7 @@
+<RCC>
+    <qresource lang="eng" prefix="/img"/>
+    <qresource prefix="/img"/>
+    <qresource prefix="/">
+        <file>../house_logo.png</file>
+    </qresource>
+</RCC>
