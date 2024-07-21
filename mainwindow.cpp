@@ -6,6 +6,8 @@
 #include <QStyledItemDelegate>
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QChart>
+#include <QtCharts/QChartView>
+#include <QVBoxLayout>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -14,18 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-
-    QChart *chart = new QChart();
-    QLineSeries *series = new QLineSeries();
-    series->append(0, 6);
-    series->append(2, 4);
-    series->append(3, 8);
-    chart->addSeries(series);
-    chart->createDefaultAxes();
-
-
-
-    chart->show();
 
 
 
@@ -160,3 +150,38 @@ int MainWindow::count_total(){
 
     return total;
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QString res;
+    for(int k = 1;k<5;k++){
+        QString header = model->headerData(k,Qt::Horizontal).toString();
+        res+= header + "    ";
+    }
+    res+="\n";
+    int rows = model->rowCount();
+    int columns = model->columnCount();
+
+    for(int i = 0;i<rows;i++){
+        for(int j = 1;j<columns;j++){
+
+            if(j>0){
+                res+= "    ";
+            }
+
+            res += model->data(model->index(i,j)).toString();
+        }
+        res+="\n";
+    }
+
+    qDebug() << res;
+
+    QFile csvFile("test.csv");
+    if(csvFile.open(QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream out(&csvFile);
+        out << res;
+        csvFile.close();
+    }
+
+}
+

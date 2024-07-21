@@ -6,7 +6,8 @@
 #include <QtSql/QSqlTableModel>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlQueryModel>
-
+#include <QtCharts/QtCharts>
+#include <QFile>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -25,10 +26,13 @@ private slots:
     void on_pushButton_clicked();
     void update_info();
     int count_total();
+    void on_pushButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
     QSqlTableModel *model;
     double total;
+    QChart *chart;
 };
 #endif // MAINWINDOW_H
