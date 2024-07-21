@@ -3,15 +3,83 @@
 #include <QPixmap>
 #include <QDebug>
 #include <QDate>
+#include <QStyledItemDelegate>
+#include <QtCharts/QLineSeries>
+#include <QtCharts/QChart>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap p(":resourses/resourse.qrc/house_logo.png");
+
+
+
+
+    QChart *chart = new QChart();
+    QLineSeries *series = new QLineSeries();
+    series->append(0, 6);
+    series->append(2, 4);
+    series->append(3, 8);
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+
+
+
+    chart->show();
+
+
+
+    QString tableViewStyle = R"(
+    QTableView {
+        gridline-color: #dcdcdc;
+        font-size: 14px;
+        selection-background-color: #82caff;
+        selection-color: #000000;
+        background-color: #ffffff;
+        alternate-background-color: #f9f9f9;
+        border: 1px solid #dcdcdc;
+        border-radius: 8px;
+    }
+
+    QHeaderView::section {
+        background-color: #5c6bc0;
+        color: #ffffff;
+        padding: 8px;
+        border: 1px solid #dcdcdc;
+        font-size: 14px;
+    }
+
+    QTableCornerButton::section {
+        background-color: #5c6bc0;
+        border: 1px solid #dcdcdc;
+    }
+
+    QTableView::item {
+        border-bottom: 1px solid #dcdcdc;
+    }
+
+    QTableView::item:hover {
+        background-color: #e0f7fa;
+    }
+
+    QTableView::item:selected {
+        background-color: #82caff;
+        color: #000000;
+    }
+
+    QHeaderView::section:horizontal {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    QHeaderView::section:vertical {
+        border-left: none;
+    }
+)";
+
+    ui->tableView->setStyleSheet(tableViewStyle);
     ui->comboBox->addItem("Expence");
     ui->comboBox->addItem("Income");
-    ui->label->setPixmap(p.scaled(100,200));
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("./fin.db");
     db.open();
@@ -26,6 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "Table created Transactions";
     model = new QSqlTableModel();
     model->setTable("Transactions");
+    model->setSort(0, Qt::DescendingOrder);  // Сортировка по первому столбцу (id) в порядке убывания
     model->select();
     ui->tableView->setModel(model);
 }
@@ -56,9 +125,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::update_info(){
 
-
     model->select();
-
     ui->tableView->setModel(model);
     total = count_total();
     QString t = QString::number(total) + "$";

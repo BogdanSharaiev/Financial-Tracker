@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Charts)
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
@@ -47,6 +48,7 @@ endif()
 
 target_link_libraries(Financial_Tracker PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(Financial_Tracker PRIVATE Qt${QT_VERSION_MAJOR}::Sql)
+target_link_libraries(Financial_Tracker PRIVATE Qt${QT_VERSION_MAJOR}::Charts)
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.

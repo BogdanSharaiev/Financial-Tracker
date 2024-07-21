@@ -169,9 +169,9 @@ color: rgb(0, 202, 30)
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>420</x>
       <y>400</y>
-      <width>471</width>
+      <width>571</width>
       <height>192</height>
      </rect>
     </property>
@@ -222,6 +222,19 @@ color: rgb(0, 202, 30)
     </property>
     <property name="text">
      <string>Add</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>350</y>
+      <width>141</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Transaction History</string>
     </property>
    </widget>
   </widget>
