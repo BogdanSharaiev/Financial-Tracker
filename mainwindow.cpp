@@ -156,7 +156,7 @@ void MainWindow::on_pushButton_2_clicked()
     QString res;
     for(int k = 1;k<5;k++){
         QString header = model->headerData(k,Qt::Horizontal).toString();
-        res+= header + "    ";
+        res+= header + ",";
     }
     res+="\n";
     int rows = model->rowCount();
@@ -166,7 +166,7 @@ void MainWindow::on_pushButton_2_clicked()
         for(int j = 1;j<columns;j++){
 
             if(j>0){
-                res+= "    ";
+                res+= ",";
             }
 
             res += model->data(model->index(i,j)).toString();
