@@ -97,3 +97,9 @@
 14	123	7432649466477305	C:/QNX SDP/Financial_Tracker/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/Financial_Tracker_autogen/mocs_compilation.cpp	3090414ad55b802c
 140	3811	7432649505086963	CMakeFiles/Financial_Tracker.dir/mainwindow.cpp.obj	d61cada3103fa21a
 3812	3999	7432649506666974	Financial_Tracker.exe	7e6f9d78bc9ee157
+17	151	7432650208702786	Financial_Tracker_autogen/timestamp	3090414ad55b802c
+17	151	7432650208702786	Financial_Tracker_autogen/mocs_compilation.cpp	3090414ad55b802c
+17	151	7432650208702786	C:/QNX SDP/Financial_Tracker/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/Financial_Tracker_autogen/timestamp	3090414ad55b802c
+17	151	7432650208702786	C:/QNX SDP/Financial_Tracker/build/Desktop_x86_windows_msvc2022_pe_64bit-Debug/Financial_Tracker_autogen/mocs_compilation.cpp	3090414ad55b802c
+169	3860	7432650247792732	CMakeFiles/Financial_Tracker.dir/mainwindow.cpp.obj	d61cada3103fa21a
+3860	4039	7432650249292394	Financial_Tracker.exe	7e6f9d78bc9ee157

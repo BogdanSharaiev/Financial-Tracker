@@ -164,12 +164,8 @@ void MainWindow::on_pushButton_2_clicked()
 
     for(int i = 0;i<rows;i++){
         for(int j = 1;j<columns;j++){
-
-            if(j>0){
-                res+= ",";
-            }
-
             res += model->data(model->index(i,j)).toString();
+            res+=",";
         }
         res+="\n";
     }
