@@ -28,6 +28,8 @@ private slots:
     int count_total();
     void on_pushButton_2_clicked();
 
+    void on_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;

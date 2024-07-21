@@ -150,7 +150,7 @@ int MainWindow::count_total(){
 
     return total;
 }
-
+// file csv writer
 void MainWindow::on_pushButton_2_clicked()
 {
     QString res;
@@ -174,10 +174,19 @@ void MainWindow::on_pushButton_2_clicked()
 
     QFile csvFile("test.csv");
     if(csvFile.open(QIODevice::WriteOnly | QIODevice::Text)){
-        QTextStream out(&csvFile);
-        out << res;
+        QTextStream f(&csvFile);
+        f << res;
         csvFile.close();
     }
 
+}
+
+
+void MainWindow::on_tableView_clicked(const QModelIndex &index)
+{
+    int a = index.row();
+    int b = index.column();
+    QString data = model->data(model->index(a,b)).toString();
+    ui->statusBar->showMessage(data);
 }
 
