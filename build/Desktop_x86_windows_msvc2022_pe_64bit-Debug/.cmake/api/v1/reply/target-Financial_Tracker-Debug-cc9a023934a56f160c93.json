@@ -391,11 +391,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "Financial_Tracker_autogen::@6890427a1f51a3e7e1df"
+			"id" : "Financial_Tracker_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "Financial_Tracker_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "Financial_Tracker_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "Financial_Tracker::@6890427a1f51a3e7e1df",

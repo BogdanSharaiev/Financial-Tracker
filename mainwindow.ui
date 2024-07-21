@@ -186,6 +186,9 @@ color: rgb(0, 202, 30)
      </rect>
     </property>
     <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
      <string>Description</string>
     </property>
    </widget>
@@ -202,6 +205,9 @@ color: rgb(0, 202, 30)
      <string/>
     </property>
     <property name="text">
+     <string/>
+    </property>
+    <property name="placeholderText">
      <string>Value</string>
     </property>
    </widget>
@@ -215,7 +221,7 @@ color: rgb(0, 202, 30)
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Add</string>
     </property>
    </widget>
   </widget>

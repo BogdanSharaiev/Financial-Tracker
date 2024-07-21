@@ -17,20 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     db.open();
     QSqlQuery qe;
     // label_4
-     qe.prepare("SELECT id, amount, date, description, type FROM Transactions");
-    qe.exec();
+   total = count_total();
 
-     total = 0;
-     while(qe.next()){
-        QString type = qe.value(4).toString();
-         double amount = qe.value(1).toDouble();
-        if(type == "Income"){
-             total+=amount;
-         }
-        else{
-            total-=amount;
-        }
-    }
      QString t = QString::number(total) + "$";
      ui->label_4->setText(t);
     QSqlQuery q;
@@ -72,11 +60,17 @@ void MainWindow::update_info(){
     model->select();
 
     ui->tableView->setModel(model);
+    total = count_total();
+    QString t = QString::number(total) + "$";
+    ui->label_4->setText(t);
+}
+
+
+int MainWindow::count_total(){
     QSqlQuery qe;
     // label_4
     qe.prepare("SELECT id, amount, date, description, type FROM Transactions");
     qe.exec();
-
     total = 0;
     while(qe.next()){
         QString type = qe.value(4).toString();
@@ -88,6 +82,14 @@ void MainWindow::update_info(){
             total-=amount;
         }
     }
-    QString t = QString::number(total) + "$";
-    ui->label_4->setText(t);
+
+    if(total>0){
+        ui->label_4->setStyleSheet("font: 700 30pt 'Times New Roman'; color: rgb(0, 202, 30)");
+    }
+    else{
+        ui->label_4->setStyleSheet("font: 700 30pt 'Times New Roman'; color: red");
+    }
+
+
+    return total;
 }

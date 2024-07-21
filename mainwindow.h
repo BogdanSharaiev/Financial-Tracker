@@ -24,7 +24,7 @@ public:
 private slots:
     void on_pushButton_clicked();
     void update_info();
-
+    int count_total();
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
